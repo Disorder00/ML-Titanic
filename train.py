@@ -23,8 +23,8 @@ from sklearn.preprocessing import LabelEncoder
 # 绘图库
 import matplotlib.pyplot as plt
 
-# 设置 matplotlib 风格（避免中文乱码，若系统无中文字体则使用英文）
-plt.rcParams['font.sans-serif'] = ['DejaVu Sans']  # 也可尝试 'SimHei' 如果系统有
+# 设置 matplotlib 风格
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans']  
 plt.rcParams['axes.unicode_minus'] = False
 
 print("="*60)
@@ -33,13 +33,13 @@ print("="*60)
 
 # ----------------------------- 1. 加载数据 ----------------------------------
 print("\n[1] 加载数据集...")
-# 方式一：使用 seaborn 内置数据集（无需额外下载）
+# 方式一：使用 seaborn 内置数据集
 try:
     import seaborn as sns
     titanic = sns.load_dataset('titanic')
     print("   使用 seaborn 内置数据集，共 {} 条记录".format(len(titanic)))
 except Exception as e:
-    # 备选：从本地 CSV 读取（如果需要）
+    # 备选：从本地 CSV 读取
     print("    seaborn 加载失败，尝试读取本地 train.csv ...")
     titanic = pd.read_csv('/root/autodl-tmp/train.csv')
     # 将列名统一为 seaborn 的格式
